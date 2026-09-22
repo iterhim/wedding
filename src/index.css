@@ -1,0 +1,432 @@
+:root {
+  --cream: #faf6ec;
+  --cream-card: #fdfbf5;
+  --olive-dark: #4b5138;
+  --accent: #6b7256;
+  --border: #e4dcc8;
+  --text: #3c4030;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  font-family: 'PT Serif', Georgia, serif;
+  color: var(--text);
+  background: var(--cream);
+}
+
+#root {
+  min-height: 100%;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── scroll-snap sections ── */
+
+.snap-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* ── scroll-triggered reveal animation ── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── shared text styles ── */
+
+.eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.eyebrow.light {
+  color: #e4e7d5;
+}
+
+.script-heading {
+  font-family: 'Marck Script', cursive;
+  font-size: 28px;
+  color: #ede7d3;
+}
+
+.script-heading.small {
+  font-size: 27px;
+  color: var(--text);
+}
+
+.body-text {
+  margin: 0;
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.body-text.light {
+  color: #d5d9c1;
+}
+
+.body-text.small {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+.btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cream);
+  padding: 12px 22px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.82;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Hero ── */
+
+.hero {
+  padding: 48px 28px 32px;
+  gap: 18px;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.name {
+  font-family: 'Yeseva One', serif;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.amp {
+  font-family: 'Marck Script', cursive;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: 'Marck Script', cursive;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--accent);
+  max-width: 380px;
+}
+
+.photo-frame {
+  width: 78%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.date {
+  font-family: 'Yeseva One', serif;
+  font-size: 25px;
+}
+
+.day-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8b9270;
+}
+
+/* ── Greeting / countdown / ceremony ── */
+
+.greeting {
+  padding: 48px 32px;
+  gap: 32px;
+}
+
+.greeting-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.countdown-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.countdown-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 48px;
+}
+
+.countdown-value {
+  font-family: 'Yeseva One', serif;
+  font-size: 32px;
+  color: var(--cream);
+}
+
+.countdown-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #abb495;
+}
+
+.ceremony-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid #626b4d;
+  width: 100%;
+  justify-content: center;
+}
+
+.ceremony-time {
+  font-family: 'Yeseva One', serif;
+  font-size: 21px;
+  color: var(--cream);
+}
+
+/* ── Venue ── */
+
+.venue {
+  padding: 48px 32px;
+  gap: 26px;
+}
+
+.venue-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.venue-map {
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.venue-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -68%);
+}
+
+.venue-info {
+  width: 100%;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.venue-city {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #6b6f58;
+}
+
+/* ── Dress code / closing ── */
+
+.dress-code {
+  padding: 48px 32px;
+  gap: 30px;
+}
+
+.dress-code-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.palette {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.divider-line {
+  width: 60%;
+  height: 1px;
+  background: #626b4d;
+}
+
+.closing-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.closing-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.signature-name {
+  font-family: 'Yeseva One', serif;
+  font-size: 20px;
+  color: #d9c9a3;
+}
+
+.signature-date {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #9ca583;
+}
+
+/* ── Scroll progress indicator ── */
+
+.scroll-progress {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 8px;
+  border-radius: 20px;
+  background: rgba(60, 64, 48, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.scroll-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(253, 251, 245, 0.65);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.scroll-progress-dot:hover {
+  background: rgba(253, 251, 245, 0.9);
+}
+
+.scroll-progress-dot:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+}
+
+.scroll-progress-dot.is-active {
+  transform: scale(1.4);
+}
+
+@media (max-width: 480px) {
+  .scroll-progress {
+    right: 10px;
+    gap: 11px;
+    padding: 10px 6px;
+  }
+
+  .scroll-progress-dot {
+    width: 7px;
+    height: 7px;
+  }
+}
