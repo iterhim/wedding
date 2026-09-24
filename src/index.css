@@ -258,14 +258,20 @@ body {
   color: #abb495;
 }
 
-.ceremony-row {
+.ceremony-block {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   gap: 16px;
-  padding-top: 8px;
+  padding-top: 16px;
   border-top: 1px solid #626b4d;
   width: 100%;
+}
+
+.ceremony-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 14px;
   justify-content: center;
 }
 
@@ -273,6 +279,27 @@ body {
   font-family: 'Yeseva One', serif;
   font-size: 21px;
   color: var(--cream);
+  flex-shrink: 0;
+}
+
+.ceremony-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ceremony-label {
+  font-family: 'PT Serif', serif;
+  font-size: 15px;
+  color: var(--cream);
+}
+
+.ceremony-place {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #abb495;
 }
 
 /* ── Venue ── */

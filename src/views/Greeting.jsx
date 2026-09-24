@@ -1,9 +1,10 @@
 import { useCountdown } from '../controllers/useCountdown';
 import { useScrollReveal } from '../controllers/useScrollReveal';
 
-// VIEW — секція 2: звернення + живий відлік + час церемонії.
-// Лейбли одиниць відліку ("днів", "год" ...) — це контент,
-// тож приходять з моделі (wedding.countdown.units), а не хардкод у View.
+// VIEW — секція 2: звернення + живий відлік + розклад дня.
+// Лейбли одиниць відліку ("днів", "год" ...) і сам розклад
+// (вінчання / початок святкування) — це контент, тож приходять
+// з моделі, а не хардкод у View.
 export function Greeting({ wedding }) {
   const revealRef = useScrollReveal();
   const countdown = useCountdown(wedding.date.iso);
@@ -37,10 +38,16 @@ export function Greeting({ wedding }) {
           </div>
         </div>
 
-        <div className="ceremony-row">
-          <span className="ceremony-time">
-            {ceremony.time} — {ceremony.label}
-          </span>
+        <div className="ceremony-block">
+          {[ceremony.wedding, ceremony.celebration].map((event) => (
+            <div className="ceremony-item" key={event.label}>
+              <span className="ceremony-time">{event.time}</span>
+              <div className="ceremony-details">
+                <span className="ceremony-label">{event.label}</span>
+                <span className="ceremony-place">{event.place}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
