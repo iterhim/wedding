@@ -4,11 +4,14 @@ import { Greeting } from './views/Greeting';
 import { Venue } from './views/Venue';
 import { DressCode } from './views/DressCode';
 import { ScrollProgress } from './views/ScrollProgress';
+import { useScrollRestoration } from './controllers/useScrollRestoration';
 
 // Композиційний корінь: збирає 4 секції в порядку скролу.
 // Дані (модель) течуть вниз пропсами; кожен View сам підʼєднує
 // потрібні контролери (useCountdown, useScrollReveal, useSectionProgress).
 export default function App() {
+  useScrollRestoration();
+
   return (
     <>
       <ScrollProgress sections={wedding.sections} theme={wedding.theme} />
