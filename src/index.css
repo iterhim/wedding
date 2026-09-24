@@ -280,6 +280,9 @@ body {
   font-size: 21px;
   color: var(--cream);
   flex-shrink: 0;
+  width: 72px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .ceremony-details {
