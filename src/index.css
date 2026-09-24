@@ -281,7 +281,7 @@ body {
   color: var(--cream);
   flex-shrink: 0;
   width: 72px;
-  text-align: right;
+  text-align: left;
   font-variant-numeric: tabular-nums;
 }
 
