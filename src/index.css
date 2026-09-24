@@ -259,19 +259,16 @@ body {
 }
 
 .ceremony-block {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  row-gap: 16px;
+  align-items: baseline;
   padding-top: 16px;
   border-top: 1px solid #626b4d;
   width: 100%;
-}
-
-.ceremony-item {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  gap: 14px;
+  /* центрує весь двоколонковий блок як групу, зберігаючи
+     divider на всю ширину секції */
   justify-content: center;
 }
 
@@ -279,9 +276,6 @@ body {
   font-family: 'Yeseva One', serif;
   font-size: 21px;
   color: var(--cream);
-  flex-shrink: 0;
-  width: 72px;
-  text-align: left;
   font-variant-numeric: tabular-nums;
 }
 

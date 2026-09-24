@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useCountdown } from '../controllers/useCountdown';
 import { useScrollReveal } from '../controllers/useScrollReveal';
 
@@ -5,6 +6,11 @@ import { useScrollReveal } from '../controllers/useScrollReveal';
 // Лейбли одиниць відліку ("днів", "год" ...) і сам розклад
 // (вінчання / початок святкування) — це контент, тож приходять
 // з моделі, а не хардкод у View.
+//
+// .ceremony-block — CSS Grid у 2 колонки (час / деталі): колонка
+// часу вирівнюється по фактичній ширині відрендереного вмісту,
+// тож "13:00" і "14:30" завжди на одній лінії, незалежно від
+// того, що ширина цифр у шрифті трохи відрізняється.
 export function Greeting({ wedding }) {
   const revealRef = useScrollReveal();
   const countdown = useCountdown(wedding.date.iso);
@@ -40,13 +46,13 @@ export function Greeting({ wedding }) {
 
         <div className="ceremony-block">
           {[ceremony.wedding, ceremony.celebration].map((event) => (
-            <div className="ceremony-item" key={event.label}>
+            <Fragment key={event.label}>
               <span className="ceremony-time">{event.time}</span>
               <div className="ceremony-details">
                 <span className="ceremony-label">{event.label}</span>
                 <span className="ceremony-place">{event.place}</span>
               </div>
-            </div>
+            </Fragment>
           ))}
         </div>
       </div>
